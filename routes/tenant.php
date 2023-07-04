@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\Tenancy\ProfileController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\User;
 use App\Models\Verse;
 
@@ -31,6 +32,8 @@ Route::middleware([
         return view('tenancy.welcome');
     });
 
+
+
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', function () {
             $verses = Verse::all();
@@ -46,4 +49,10 @@ Route::middleware([
         Route::resource('tenants', TenantController::class)->except('show');
     });
     require __DIR__ . '/auth.php';
+    Route::middleware('guest')->group(function () {
+        Route::get('register', [RegisteredUserController::class, 'create'])
+            ->name('register');
+
+        Route::post('register', [RegisteredUserController::class, 'store']);
+    });
 });
