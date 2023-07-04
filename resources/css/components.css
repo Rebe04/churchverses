@@ -1,0 +1,35 @@
+.btn {
+    @apply font-bold py-2 px-4 rounded;
+  }
+
+.btn-blue {
+    @apply bg-verses-blue text-white hover:bg-verses-blue-h;
+}
+
+.btn-yellow {
+  @apply bg-verses-yellow text-white hover:bg-verses-yellow-h;
+}
+
+.btn-blue-c {
+  @apply bg-verses-blue-c text-white hover:bg-verses-blue-c-h;
+}
+
+.btn-red {
+  @apply bg-red-500 text-white hover:bg-red-400;
+}
+
+.btn-green {
+  @apply bg-green-500 text-white hover:bg-green-400;
+}
+
+.btn-indigo {
+  @apply bg-indigo-500 text-white hover:bg-indigo-400;
+}
+
+.card{
+    @apply bg-white shadow-xl sm:rounded-lg p-6;
+}
+
+.card-body{
+@apply p-6 sm:px-10 bg-white border-b border-gray-200;
+}
